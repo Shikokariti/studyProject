@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>עגלת קניות</title>
+  <script type="text/javascript" src="market.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../css/style.css" />
+
+  <style>
+    img {
+      width: 200px;
+      height: 200px;
+    }
+    .products {
+      width: 10000px;
+    }
+    #ramzi {
+      width: 100%;
+      height: 100%;
+    }
+    #shoppingCart {
+      width: 100%;
+      height: 150px;
+    }
+    .summary {
+      width: 100%;
+      height: 250px;
+    }
+    #totalPrice {
+      width: 100%;
+      height: 40px;
+    }
+    .addAndRemoveButtons {
+      padding-top: 0px;
+      padding-bottom:20px;
+      height: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="fw-bold fw">
+<div class="header">
+  <a class="navbar-brand position-absolute">
+    <img width="300" height="100" src="data:image/png;base64,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"/>
+  </a>
+  <h1 class="text-center display-1 fw-bolder text-danger">My Shop</h1>
+</div>
+<div class="text-center">
+</div>
+</br></br></br></br></br>
+<div class="container-fluid mt-3">
+  <div class="row flex-row">
+    <div class="col-2">
+      <h1 class="text-center bg-danger fw-bold">My Cart</h1>
+      <div>
+        <div class="summary">
+          <button id="resetChart" onclick="resetCart()" type="button" class="btn btn-dark col-12 btn-sm btn">Reset Cart</button>
+          <h2 class="text-white">Items</h2>
+          <ul id="items" class="list-group list-group-item-primary">
+          </ul>
+        </div>
+        <div class="mt-3">
+          <img id="shoppingCart" class="mt-5" src="https://display.co.il/wp-content/uploads/2020/07/%D7%A2%D7%92%D7%9C%D7%AA-%D7%A1%D7%95%D7%A4%D7%A8-100-%D7%9C%D7%99%D7%98%D7%A8-.jpeg"/>
+          <h2 id="itemCount" class="text-white">Items Count:</h2>
+          <h2 id="totalPrice" class="text-white">Total:</h2>
+        </div>
+      </div>
+    </div>
+    <div class="text-center col-8">
+      <table>
+        <tbody>
+        <tr>
+          <th>
+          <td class="border products">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJtA3X9AqbGhUQRmsSxjZPDxB1rsnr1yCDbg&usqp=CAU"/>
+            <div>
+              <h3 class="d-inline text-decoration-underline p-2">מחיר:</h3>
+              <h3 class="d-inline text-danger">12₪</h3>
+              <div>
+                </br>
+                <button onclick="addItem(items[3],'mayo')" type="button" class="btn btn-primary tex mb-2">הוסף לעגלה</button>
+              </div>
+            </div>
+          </td>
+          <td class="products border">
+            <img src="https://www.ewines.co.il/wp-content/uploads/2019/04/3-%D7%97%D7%98%D7%99%D7%A4%D7%99%D7%9D.jpg"/>
+            <div>
+              <h3 class="d-inline text-decoration-underline p-2">מחיר:</h3>
+              <h3 class="d-inline text-danger">20₪</h3>
+              <div>
+                </br>
+                <button onclick="addItem(items[2],'bamba')" type="button" class="btn btn-primary tex mb-2">הוסף לעגלה</button>
+              </div>
+            </div>
+          </td>
+          <td class="products border">
+            <img src="https://www.pizohaizion.co.il/wp-content/uploads/2021/02/7290000284316.jpg"/>
+            <div>
+              <h3 class="d-inline text-decoration-underline p-2">מחיר:</h3>
+              <h3 class="d-inline text-danger">8₪</h3>
+              <div>
+                </br>
+                <button onclick="addItem(items[1],'cola')" type="button" class="btn btn-primary tex mb-2">הוסף לעגלה</button>
+              </div>
+            </div>
+          </td>
+          <td class="products border">
+            <img src="https://res.cloudinary.com/shufersal/image/upload/f_auto,q_auto/v1551800922/prod/product_images/products_zoom/CXS26_Z_P_143279_1.png"/>
+            <div>
+              <h3 class="d-inline text-decoration-underline p-2">מחיר:</h3>
+              <h3 class="d-inline text-danger">18₪</h3>
+              <div>
+                </br>
+                <button onclick="addItem(items[0],'shampoo')" type="button" class="btn btn-primary tex mb-2">הוסף לעגלה</button>
+              </div>
+            </div>
+          </td>
+          </th>
+        </tr>
+        <tr>
+          <th>
+          <td class="products border">
+            <img src="https://pinookim.co.il/wp-content/uploads/2021/02/2bacd318-5ae0-4a0f-af61-b8144621e1b3.jpg"/>
+            <div>
+              <h3 class="d-inline text-decoration-underline p-2">מחיר:</h3>
+              <h3 class="d-inline text-danger">15₪</h3>
+              <div>
+                </br>
+                <button onclick="addItem(items[7],'lotus')" type="button" class="btn btn-primary tex mb-2">הוסף לעגלה</button>
+              </div>
+            </div>
+          </td>
+          <td class="products border">
+            <img src="https://popa-rg.co.il/wp-content/uploads/2021/02/oreooriginal.jpg"/>
+            <div>
+              <h3 class="d-inline text-decoration-underline p-2">מחיר:</h3>
+              <h3 class="d-inline text-danger">16₪</h3>
+              <div>
+                </br>
+                <button onclick="addItem(items[6],'oreo')" type="button" class="btn btn-primary tex mb-2">הוסף לעגלה</button>
+              </div>
+            </div>
+          </td>
+          <td class="products border">
+            <img src="https://d3m9l0v76dty0.cloudfront.net/system/photos/4842913/large/2579795407cec9d84aca53615de99a02.jpg"/>
+            <div>
+              <h3 class="d-inline text-decoration-underline p-2">מחיר:</h3>
+              <h3 class="d-inline text-danger">12₪</h3>
+              <div>
+                </br>
+                <button onclick="addItem(items[5],'shahar')" type="button" class="btn btn-primary tex mb-2">הוסף לעגלה</button>
+              </div>
+            </div>
+          </td>
+          <td class="products border">
+            <img src="https://www.hon.co.il/wp-content/uploads/2017/05/%D7%A0%D7%95%D7%98%D7%9C%D7%94-480x480.jpg"/>
+            <div>
+              <h3 class="d-inline text-decoration-underline p-2">מחיר:</h3>
+              <h3 class="d-inline text-danger">13₪</h3>
+              <div>
+                </br>
+                <button onclick="addItem(items[4],'nutela')" type="button" class="btn btn-primary tex mb-2">הוסף לעגלה</button>
+              </div>
+            </div>
+          </td>
+          </th>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+body {
+    background: #1c3152;
+    background: linear-gradient(to left, #1c4c6b, #0a1b49);
+}
+#sidebar{
+    background-color: #020723;
+    width: 200px;
+    height: 800px;
+}
+#header-index {
+    font-size: 30px;
+    margin-top: 20px;
+}
+#credit-card {
+    height: 270px;
+    width: 450px;
+    background: hsla(0, 0%, 100%, 0.2);
+    backdrop-filter: blur(30px);
+}
+.credit-card {
+    height: 270px;
+    width: 450px;
+    background: hsla(0, 0%, 100%, 0.2);
+    backdrop-filter: blur(30px);
+}
+#split-selection {
+    background: hsla(0, 0%, 100%, 0.2);
+    width: 45px;
+}
+#circle-1 {
+    height: 180px;
+    width: 180px;
+    top: -50px;
+    left: -60px;
+    background: radial-gradient(#006db3, #29b6f6);
+}
+#circle-2 {
+    height: 200px;
+    width: 200px;
+    bottom: -90px;
+    right: -90px;
+    background: radial-gradient(#006db3, #29b6f6);
+}
+#logo-visa {
+    width: 80px;
+}
+#chip {
+    width: 50px;
+}
+#rings {
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    background: transparent;
+    border: 50px solid hsla(0, 0%, 100%, 0.1);
+    bottom: -250px;
+    right: 200px;
+    box-sizing: border-box;
+}
+#rings:after {
+    content: '';
+    position: absolute;
+    height: 600px;
+    width: 600px;
+    border-radius: 50%;
+    background: transparent;
+    border: 30px solid hsla(0, 0%, 100%, 0.1);
+    bottom: -80px;
+    right: -110px;
+    box-sizing: border-box;
+}
+.logo-visa-main-page {
+    width: 80px;
+}
+.logo-cash-main-page {
+    width: 50px;
+}
+.logo-check-main-page {
+    width: 50px;
+}
+.card-number {
+    font-weight: bold;
+    font-size: 30px;
+}
+#circle-2-main-page {
+    height: 180px;
+    width: 180px;
+    top: -50px;
+    right: -60px;
+    background: radial-gradient(#006db3, #29b6f6);
+}
+#card-1-plus {
+    font-weight: bold;
+    /*font-size: 40px;*/
+    font-size: 22px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+.tip-input {
+    background: hsla(0, 0%, 100%, 0.2);
+    width: 45px;
+    font-weight: bold;
+}
+#total {
+    background: hsla(0, 0%, 100%, 0.2);
+    width: 45px;
+}
+#loginScreenBtn , #signUpBtn, #loginBtn #close #createSitePopupBtn {
+    width: 200px;
+}
+#mySitesArea {
+    width: auto;
+    margin: auto;
+    height: 500px;
+    margin-bottom: 180px;
+}
+#mySitesDiv {
+    margin-top: 100px;
+}
+#createSiteSection, #createItemSection, #editItemSection {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vw;
+    z-index: 100;
+    cursor: pointer;
+    transition: opacity .3s;
+}
+#iframe {
+    height: 800px;
+    width: 1500px;
+}
+.itemHeaders {
+    font-size: 20px;
+    font-weight: bold;
+}
+#editImg {
+    width: 80px;
+    height: 80px;
+}
+.shadowTest {
+    background-color: #303234;
+}

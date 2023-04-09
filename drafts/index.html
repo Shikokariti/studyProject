@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My First Project</title>
+  <script type="module" src="/vanilla-tilt.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div class="vh-100 d-flex justify-content-center align-items-center">
+  <!--        Relative container-->
+  <div class="position-relative">
+    <!--Circles-->
+    <div id="circle-1" class="position-absolute rounded-circle opacity-75">
+      <div>
+        <h5 id="card-1-number" class="text-center mt-2 card-number">1</h5>
+      </div>
+    </div>
+    <div id="circle-2-main-page" class="position-absolute rounded-circle opacity-75">
+      <div class="text-center">
+        <button type="button" id="card-1-plus" class="btn btn-dark mt-2">+</button>
+      </div>
+    </div>
+
+    <!--Circles-->
+
+    <!--credit-card-1-->
+    <div id="credit-card-1" class="shadow-4 rounded-5 overflow-hidden credit-card" data-tilt>
+      <div class="p-5">
+        <!--  content-->
+        <div class="text-white opacity-75 fw-light">
+          <div class="text-end mb-3">
+            <!--                            <img id="logo-visa" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Old_Visa_Logo.svg/1280px-Old_Visa_Logo.svg.png" alt=""/>-->
+            <div class="d-flex justify-content-between">
+              <h5>Total</h5>
+              <h5>Tip</h5>
+              <h5>Split</h5>
+            </div>
+            <div class="d-flex justify-content-between mt-2">
+              <label id="total" class="rounded"></label>
+              <input id="tip" class="tip-input rounded text-center">
+              <select id="split-selection" class="user-select-auto text-center rounded">
+                <option id="noSplit"></option>
+                <option id="splitBy2">/2</option>
+                <option id="splitBy3">/3</option>
+              </select>
+            </div>
+
+          </div>
+          <h5 class="mb-3 text-center mt-5">Select Payment Method</h5>
+
+          <div class="d-flex justify-content-between">
+            <img id="logo-cash-main-page-card-1" class="logo-cash-main-page" src="https://png.pngitem.com/pimgs/s/111-1111143_free-icon-packs-vector-icons-vector-free-icon.png" alt=""/>
+            <img id="logo-visa-main-page-card-1" class="logo-visa-main-page" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Old_Visa_Logo.svg/1280px-Old_Visa_Logo.svg.png" alt=""/>
+            <img id="logo-check-main-page-card-1" class="logo-check-main-page" src="data:image/png;base64,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" alt=""/>
+          </div>
+        </div>
+        <!--  content-->
+      </div>
+    </div>
+
+    <!--credit-card-1-->
+
+    <!--credit-card-2-->
+    <div id="credit-card-2" class="d-none mt-2 shadow-4 rounded-5 overflow-hidden credit-card" data-tilt>
+      <div class="p-5">
+        <!--  content-->
+        <div class="text-white opacity-75 fw-light">
+          <div class="text-end mb-3">
+            <!--                            <img id="logo-visa" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Old_Visa_Logo.svg/1280px-Old_Visa_Logo.svg.png" alt=""/>-->
+            <div class="d-flex justify-content-between">
+              <h5>Total</h5>
+              <h5>Tip</h5>
+              <h5>Split</h5>
+            </div>
+            <div class="d-flex justify-content-between mt-2">
+              <h5 id="total-card-2">0</h5>
+              <h5 id="tip-card-2">0</h5>
+              <select id="split-selection-card-2" class="user-select-auto text-center rounded">
+                <option id="noSplit-card-2"></option>
+                <option id="splitBy2-card-2">/2</option>
+                <option id="splitBy3-card-2">/3</option>
+              </select>
+            </div>
+
+          </div>
+          <h5 class="mb-3 text-center mt-5">Select Payment Method</h5>
+
+          <div class="d-flex justify-content-between">
+            <img id="logo-cash-main-page-card-2" class="logo-cash-main-page" src="https://png.pngitem.com/pimgs/s/111-1111143_free-icon-packs-vector-icons-vector-free-icon.png" alt=""/>
+            <img id="logo-visa-main-page-card-2" class="logo-visa-main-page" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Old_Visa_Logo.svg/1280px-Old_Visa_Logo.svg.png" alt=""/>
+            <img id="logo-check-main-page-card-2" class="logo-check-main-page" src="data:image/png;base64,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" alt=""/>
+          </div>
+        </div>
+        <!--  content-->
+      </div>
+    </div>
+    <!--credit-card-2-->
+  </div>
+  <!--        Relative container-->
+</div>
+
+
+
+</body>
+</html>

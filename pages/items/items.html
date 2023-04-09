@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MK – Online Shopping</title>
+    <script type="module" src="items.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../css/style.css" />
+</head>
+<body>
+
+    <button id="createItemMainPage" class="btn btn-primary position-absolute end-0">Create item</button>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 text-white">
+                <div class="itemHeaders">Items</div>
+                <div id="items" class="btn-group-vertical mt-4 w-50" role="group" aria-label="Basic example">
+
+                </div>
+            </div>
+            <div class="col-8 text-white">
+                <div class="container-fluid mt-2">
+                    <div class="row">
+                        <div class="col-2 text-white m-3">
+                            <h1 class="itemHeaders">Item Name</h1>
+                            <div id="itemDetails_name" class="mt-5">
+
+                            </div>
+                        </div>
+                        <div class="col-2 text-white m-3">
+                            <h1 class="itemHeaders">Price</h1>
+                            <div id="itemDetails_price" class="mt-5">
+
+                            </div>
+                        </div>
+                        <div class="col-2 text-white m-3">
+                            <h1 class="itemHeaders">Description</h1>
+                            <div id="itemDetails_Description" class="mt-5">
+
+                            </div>
+                        </div>
+                        <div class="col-2 text-white m-3">
+                            <h1 class="itemHeaders">Inventory</h1>
+                            <div id="itemDetails_Inventory" class="mt-5">
+
+                            </div>
+                        </div>
+                        <div class="col-2 text-white m-3">
+                            <div>
+                                <button id="editItem" class="btn btn-primary">
+                                    <img class="rounded" id="editImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Lq_g4J3OUL-_fvlbFehfpf61f40FVMAHdg&usqp=CAU">
+                                </button>
+
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="createItemSection" class="vh-100">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5 rounded" style="background-color: #0b0e34;">
+                    <div class="card shadow-2-strong" style="border-radius: 1rem;background-color: #0b0e34;">
+                        <div id="signUpCard" class="card-body rounded p-5 text-center" style="background-color: #0b0e34;">
+
+                            <h3 id="createSiteFormHeader" class="text-white"></h3>
+                            <p class="text-white mb-5 fs-3">Create Item</p>
+
+                            <div class="form-outline mb-4">
+                                <label class="form-label text-white" for="itemName">Item name</label>
+                                <input type="text" id="itemName" class="form-control form-control-lg text-center" />
+                                <hr class="my-2">
+                                <label class="form-label text-white" for="itemDescription">Description</label>
+                                <input type="tex" id="itemDescription" class="form-control form-control-lg text-center" />
+                                <hr class="my-2">
+                                <label class="form-label text-white" for="itemPrice">Price</label>
+                                <input type="number" id="itemPrice" class="form-control form-control-lg text-center" />
+                            </div>
+
+                            <hr class="my-4">
+
+                            <button id="createItemPopupBtn" class="btn btn-lg btn-block btn-primary" style="background-color: #18571a;"
+                                    type="submit">Create Item</button>
+                            <button id="closeItemCreatePopup" class="btn btn-lg btn-block btn-primary" style="background-color: #1a2354;"
+                                    type="button">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="editItemSection" class="vh-100">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5 rounded" style="background-color: #0b0e34;">
+                    <div class="card shadow-2-strong" style="border-radius: 1rem;background-color: #0b0e34;">
+                        <div  class="card-body rounded p-5 text-center" style="background-color: #0b0e34;">
+
+                            <h3 class="text-white"></h3>
+                            <p class="text-white mb-5 fs-3">Edit Item</p>
+
+                            <div class="form-outline mb-4">
+                                <label class="form-label text-white" for="itemName">Item name</label>
+                                <input type="text" id="editItemName" class="form-control form-control-lg text-center" />
+                                <hr class="my-2">
+                                <label class="form-label text-white" for="itemDescription">Description</label>
+                                <input type="tex" id="editItemDescription" class="form-control form-control-lg text-center" />
+                                <hr class="my-2">
+                                <label class="form-label text-white" for="itemPrice">Price</label>
+                                <input type="number" id="editItemPrice" class="form-control form-control-lg text-center" />
+                                <hr class="my-2">
+                                <label class="form-label text-white" for="itemPrice">Inventory</label>
+                                <input type="number" id="editItemInventory" class="form-control form-control-lg text-center" />
+                            </div>
+
+                            <hr class="my-4">
+
+                            <button id="saveItemChanges" class="btn btn-lg btn-block btn-primary" style="background-color: #18571a;"
+                                    type="button">Save</button>
+                            <button id="closeItemEditPopup" class="btn btn-lg btn-block btn-primary" style="background-color: #1a2354;"
+                                    type="button">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

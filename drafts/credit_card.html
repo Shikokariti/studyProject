@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My First Project</title>
+  <script type="text/javascript" src="/vanilla-tilt.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div class="vh-100 d-flex justify-content-center align-items-center">
+  <!--        Relative container-->
+  <div class="position-relative">
+    <!--Circles-->
+    <div id="circle-1" class="position-absolute rounded-circle opacity-75"></div>
+    <div id="circle-2" class="position-absolute rounded-circle opacity-75"></div>
+    <!--Circles-->
+
+    <!--credit-card-->
+    <div id="credit-card" class="shadow-4 rounded-5 overflow-hidden" data-tilt>
+      <div class="p-5">
+        <!--  content-->
+        <div class="text-white opacity-75 fw-light">
+          <div class="text-end mb-3">
+            <img id="logo-visa" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Old_Visa_Logo.svg/1280px-Old_Visa_Logo.svg.png" alt=""/>
+          </div>
+          <img class="mb-4" id="chip" src="https://www.onlineopen.org/media/blog/35/chip-card.png" alt=""/>
+          <h5 class="mb-3">123456 56789 9012 3456</h5>
+          <div class="d-flex justify-content-between">
+            <p>John Doe</p>
+            <p>12/25</p>
+          </div>
+        </div>
+        <!--  content-->
+      </div>
+    </div>
+    <div id="rings" class="position-absolute"></div>
+    <!--credit-card-->
+  </div>
+  <!--        Relative container-->
+
+
+</div>
+
+
+
+</body>
+</html>
