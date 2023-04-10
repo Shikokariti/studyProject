@@ -26,13 +26,18 @@ render.renderItems(currentSite.items);
 
 
 document.getElementById('createItemMainPage').addEventListener('click',()=>{
+    document.getElementById('itemName').value = '';
+    document.getElementById('itemDescription').value = '';
+    document.getElementById('itemPrice').value = '';
+    document.getElementById('itemImage').value = '';
     document.getElementById('createItemSection').style.display = "block";
 });
 document.getElementById('createItemPopupBtn').addEventListener('click',()=>{
     let itemName = document.getElementById('itemName').value;
     let itemDescription = document.getElementById('itemDescription').value;
     let itemPrice = document.getElementById('itemPrice').value;
-    let item = new Item(itemName,itemDescription,itemPrice, currentSite);
+    let itemImage = document.getElementById('itemImage').value;
+    let item = new Item(itemName, itemDescription, itemPrice, currentSite, itemImage);
     currentSite.items.push(item);
     siteDB.updateSites(sites);
     state = stateDB.getState();

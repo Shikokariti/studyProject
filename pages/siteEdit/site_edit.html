@@ -10,33 +10,35 @@
 
 </head>
 <body>
-    <div id="header-index" class="text-white text-center">Back Office</div>
+
+    <div id="header-index" class="text-white text-center">
+        <h1 class="d-inline">Back Office</h1>
+        <button id="back-to-mySites" class="btn btn-dark position-absolute start-0 btn-outline-secondary"> <- Back</button>
+    </div>
+
 
 
     <div class="container-fluid mt-2">
-        <div class="row">
-            <div class="col-sm">
-                    <div class="wrapper">
-                        <!-- Sidebar -->
+        <div id="test2" class="row">
                         <nav id="sidebar">
-                            <div class="sidebar-header">
-                                <h3 id="siteName" class="text-white m-3"></h3>
+                            <div class="sidebar-header text-center">
+                                <h3 id="siteName" class="text-white mt-3"></h3>
                             </div>
 
-                            <ul class="list-unstyled components mt-5">
+                            <ul class="list-unstyled components mt-5 text-center">
                                 <li class="active">
-                                    <button id="items">Items</button>
+                                    <button id="items" type="button" class="btn btn-info edit-site-menu">Items</button>
                                 </li>
                                 <hr class="my-2">
                                 <li>
-                                    <button id="view">View</button>
+                                    <button id="preview" type="button" class="btn btn-info edit-site-menu">Preview</button>
+                                </li>
+                                <hr class="my-2">
+                                <li>
+                                    <button id="link-to-site" type="button" class="btn btn-info edit-site-menu">Link to site</button>
                                 </li>
                             </ul>
                         </nav>
-                    </div>
-            </div>
-            <div id="check" class="col-sm container">
-            </div>
         </div>
     </div>
     <div id="footer-index" class="text-white text-center footer">-Moshe Kariti- Websites LTD</div>
