@@ -1,11 +1,9 @@
 body {
     background: #1c3152;
     background: linear-gradient(to left, #1c4c6b, #0a1b49);
-}
-#sidebar{
-    background-color: #020723;
-    width: 200px;
-    height: 800px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 #header-index {
     font-size: 30px;
@@ -105,7 +103,7 @@ body {
     background: hsla(0, 0%, 100%, 0.2);
     width: 45px;
 }
-#loginScreenBtn , #signUpBtn, #loginBtn #close #createSitePopupBtn {
+#loginScreenBtn , #signUpBtn, #loginBtn, #close, #createSitePopupBtn {
     width: 200px;
 }
 #mySitesArea {
@@ -126,10 +124,6 @@ body {
     cursor: pointer;
     transition: opacity .3s;
 }
-#iframe {
-    height: 800px;
-    width: 1500px;
-}
 .itemHeaders {
     font-size: 20px;
     font-weight: bold;
@@ -140,4 +134,47 @@ body {
 }
 .shadowTest {
     background-color: #303234;
+}
+.edit-site-menu {
+    width: 220px;
+    height: 40px;
+}
+#sidebar{
+    background-color: #020723;
+    width: 250px;
+    height: 800px;
+    margin: 0px;
+    padding-right: 30px;
+}
+.iframes {
+    display: none;
+}
+#back-to-mySites {
+    margin-left: 10px;
+}
+#contView {
+    height: 100%;
+}
+.cards-image {
+    width: 150px;
+    height: 150px;
+    margin-left: 12px;
+    margin-top: 5px;
+}
+.item-card {
+    width: 200px;
+    margin: 5px;
+    background-color: #337a6a;
+}
+.card-btn-without-description {
+    margin-bottom: -72px;
+}
+#footer-index{
+    margin-top: auto;
+}
+.sites-button {
+    width: 800px;
+}
+#mySitesButtons {
+    width: 1500px;
 }
