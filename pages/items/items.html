@@ -10,12 +10,12 @@
 </head>
 <body>
 
-    <button id="createItemMainPage" class="btn btn-primary position-absolute end-0">Create item</button>
+    <button id="create-item-main-page-btn" class="btn btn-primary position-absolute end-0">Create item</button>
     <div class="container-fluid">
         <div class="row">
             <div class="col-3 text-white">
-                <div class="itemHeaders mt-3">Items</div>
-                <div id="items" class="btn-group-vertical mt-4 w-50" role="group" aria-label="Basic example">
+                <div class="item-details-headers mt-3">Items</div>
+                <div id="items-list" class="btn-group-vertical mt-4 w-50" role="group" aria-label="Basic example">
 
                 </div>
             </div>
@@ -23,40 +23,54 @@
                 <div class="container-fluid mt-2">
                     <div class="row">
                         <div class="col-2 text-white m-3">
-                            <h1 class="itemHeaders">Item Name</h1>
-                            <div id="itemDetails_name" class="mt-5">
+                            <h1 class="item-details-headers">Name</h1>
+                            <div id="item-details-name" class="mt-5">
 
                             </div>
                         </div>
                         <div class="col-2 text-white m-3">
-                            <h1 class="itemHeaders">Price</h1>
-                            <div id="itemDetails_price" class="mt-5">
+                            <h1 class="item-details-headers">Price</h1>
+                            <div id="item-details-price" class="mt-5">
 
                             </div>
                         </div>
                         <div class="col-2 text-white m-3">
-                            <h1 class="itemHeaders">Description</h1>
-                            <div id="itemDetails_Description" class="mt-5">
+                            <h1 class="item-details-headers">Description</h1>
+                            <div id="item-details-description" class="mt-5">
 
                             </div>
                         </div>
                         <div class="col-2 text-white m-3">
-                            <h1 class="itemHeaders">Inventory</h1>
-                            <div id="itemDetails_Inventory" class="mt-5">
+                            <h1 class="item-details-headers">Inventory</h1>
+                            <div id="item-details-inventory" class="mt-5">
 
                             </div>
                         </div>
                         <div class="col-2 text-white m-3">
-                            <div>
-                                <button id="editItem" class="btn btn-primary">
-                                    <img class="rounded" id="editImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Lq_g4J3OUL-_fvlbFehfpf61f40FVMAHdg&usqp=CAU">
-                                </button>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button id="editItem" class="btn btn-primary">
+                                        <img class="rounded edit-item-buttons d-inline" id="edit-image-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Lq_g4J3OUL-_fvlbFehfpf61f40FVMAHdg&usqp=CAU">
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button id="delete-item" class="btn btn-primary">
+                                        <img class="rounded edit-item-buttons d-inline" id="delete-item-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2abCwsk6rnJ3lz5vILLKmGsSTSj8Cjl0Qcg&usqp=CAU">
+                                    </button>
+                                </div>
+
 
                             </div>
                         </div>
+                        <hr class="my-2"></br></br>
+                        <div class="row">
+                            <div class="col-2 text-white m-3">
+                                <h1 class="item-details-headers">Image</h1>
+                                <div id="item-details-image" class="mt-5">
 
+                                </div>
 
-
+                        </div>
 
                     </div>
                 </div>
@@ -64,35 +78,35 @@
         </div>
     </div>
 
-    <section id="createItemSection" class="vh-100">
+    <section id="create-item-popup" class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5 rounded" style="background-color: #0b0e34;">
                     <div class="card shadow-2-strong" style="border-radius: 1rem;background-color: #0b0e34;">
-                        <div id="signUpCard" class="card-body rounded p-5 text-center" style="background-color: #0b0e34;">
+                        <div class="card-body rounded p-5 text-center" style="background-color: #0b0e34;">
 
-                            <h3 id="createSiteFormHeader" class="text-white"></h3>
+                            <h3 class="text-white"></h3>
                             <p class="text-white mb-5 fs-3">Create Item</p>
 
                             <div class="form-outline mb-4">
-                                <label class="form-label text-white" for="itemName">Item name</label>
-                                <input type="text" id="itemName" class="form-control form-control-lg text-center" />
+                                <label class="form-label text-white" for="item-name">Item name</label>
+                                <input type="text" id="item-name" class="form-control form-control-lg text-center" />
                                 <hr class="my-2">
-                                <label class="form-label text-white" for="itemDescription">Description</label>
-                                <input type="tex" id="itemDescription" class="form-control form-control-lg text-center" />
+                                <label class="form-label text-white" for="item-description">Description</label>
+                                <input type="tex" id="item-description" class="form-control form-control-lg text-center" />
                                 <hr class="my-2">
-                                <label class="form-label text-white" for="itemImage">Image (URL)</label>
-                                <input type="url" id="itemImage" class="form-control form-control-lg text-center" />
+                                <label class="form-label text-white" for="item-image">Image (URL)</label>
+                                <input type="url" id="item-image" class="form-control form-control-lg text-center" />
                                 <hr class="my-2">
-                                <label class="form-label text-white" for="itemPrice">Price</label>
-                                <input type="number" id="itemPrice" class="form-control form-control-lg text-center" />
+                                <label class="form-label text-white" for="item-price">Price</label>
+                                <input type="number" id="item-price" class="form-control form-control-lg text-center" />
                             </div>
 
                             <hr class="my-4">
 
-                            <button id="createItemPopupBtn" class="btn btn-lg btn-block btn-primary" style="background-color: #18571a;"
+                            <button id="create-item-popup-btn" class="btn btn-lg btn-block btn-primary" style="background-color: #18571a;"
                                     type="submit">Create Item</button>
-                            <button id="closeItemCreatePopup" class="btn btn-lg btn-block btn-primary" style="background-color: #1a2354;"
+                            <button id="close-create-item-popup-btn" class="btn btn-lg btn-block btn-primary" style="background-color: #1a2354;"
                                     type="button">Close</button>
                         </div>
                     </div>
@@ -101,35 +115,38 @@
         </div>
     </section>
 
-    <section id="editItemSection" class="vh-100">
+    <section id="edit-item-section" class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5 rounded" style="background-color: #0b0e34;">
                     <div class="card shadow-2-strong" style="border-radius: 1rem;background-color: #0b0e34;">
-                        <div  class="card-body rounded p-5 text-center" style="background-color: #0b0e34;">
+                        <div class="card-body rounded p-5 text-center" style="background-color: #0b0e34;">
 
                             <h3 class="text-white"></h3>
                             <p class="text-white mb-5 fs-3">Edit Item</p>
 
                             <div class="form-outline mb-4">
-                                <label class="form-label text-white" for="itemName">Item name</label>
-                                <input type="text" id="editItemName" class="form-control form-control-lg text-center" />
+                                <label class="form-label text-white" for="edit-item-name">Item name</label>
+                                <input type="text" id="edit-item-name" class="form-control form-control-lg text-center" />
                                 <hr class="my-2">
-                                <label class="form-label text-white" for="itemDescription">Description</label>
-                                <input type="tex" id="editItemDescription" class="form-control form-control-lg text-center" />
+                                <label class="form-label text-white" for="edit-item-description">Description</label>
+                                <input type="tex" id="edit-item-description" class="form-control form-control-lg text-center" />
                                 <hr class="my-2">
-                                <label class="form-label text-white" for="itemPrice">Price</label>
-                                <input type="number" id="editItemPrice" class="form-control form-control-lg text-center" />
+                                <label class="form-label text-white" for="edit-item-image">Image (URL)</label>
+                                <input type="url" id="edit-item-image" class="form-control form-control-lg text-center" />
                                 <hr class="my-2">
-                                <label class="form-label text-white" for="itemPrice">Inventory</label>
-                                <input type="number" id="editItemInventory" class="form-control form-control-lg text-center" />
+                                <label class="form-label text-white" for="edit-item-price">Price</label>
+                                <input type="number" id="edit-item-price" class="form-control form-control-lg text-center" />
+                                <hr class="my-2">
+                                <label class="form-label text-white" for="edit-item-inventory">Inventory</label>
+                                <input type="number" id="edit-item-inventory" class="form-control form-control-lg text-center" />
                             </div>
 
                             <hr class="my-4">
 
-                            <button id="saveItemChanges" class="btn btn-lg btn-block btn-primary" style="background-color: #18571a;"
+                            <button id="save-item-changes-btn" class="btn btn-lg btn-block btn-primary" style="background-color: #18571a;"
                                     type="button">Save</button>
-                            <button id="closeItemEditPopup" class="btn btn-lg btn-block btn-primary" style="background-color: #1a2354;"
+                            <button id="close-item-edit-popup-btn" class="btn btn-lg btn-block btn-primary" style="background-color: #1a2354;"
                                     type="button">Close</button>
                         </div>
                     </div>
@@ -137,5 +154,55 @@
             </div>
         </div>
     </section>
+
+        <section id="delete-item-section" class="vh-100">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5 rounded" style="background-color: #0b0e34;">
+                        <div class="card shadow-2-strong" style="border-radius: 1rem;background-color: #0b0e34;">
+                            <div  class="card-body rounded p-5 text-center" style="background-color: #0b0e34;">
+
+                                <h3 class="text-white"></h3>
+                                <p id="delete-item-dialog-header" class="text-white mb-5 fs-3">Delete Item</p>
+
+                                <div class="form-outline mb-4 text-white">
+                                    <p>Are you sure?</p>
+                                </div>
+
+                                <hr class="my-4">
+
+                                <button id="delete-item-dialog-btn" class="btn btn-lg btn-block btn-primary" style="background-color: #a6101f;"
+                                        type="button">Delete</button>
+                                <button id="close-delete-item-dialog-btn" class="btn btn-lg btn-block btn-primary" style="background-color: #1a2354;"
+                                        type="button">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="no-item-selected-error-section" class="vh-100">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5 rounded" style="background-color: #0b0e34;">
+                        <div class="card shadow-2-strong" style="border-radius: 1rem;background-color: #0b0e34;">
+                            <div  class="card-body rounded p-5 text-center" style="background-color: #0b0e34;">
+
+                                <h3 class="text-white"></h3>
+                                <p class="text-white mb-5 fs-3">Select item first</p>
+
+                                <hr class="my-4">
+
+                                <button id="error-section-ok-btn" class="btn btn-lg btn-block btn-primary" style="background-color: #16910e;"
+                                        type="button">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
 </body>
 </html>

@@ -41,5 +41,15 @@ export class SiteDB {
         });
         return site;
     }
+    deleteItem(siteID,itemID) {
+        let sites = this.getSites();
+        let site = sites.find(site => site.id == siteID);
+        site.items.forEach((item, index)=>{
+            if(item.id == itemID) {
+                site.items.splice(index,1);
+            }
+        });
+        this.updateSites(sites);
+    }
 }
 

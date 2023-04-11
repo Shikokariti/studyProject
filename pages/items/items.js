@@ -1,74 +1,80 @@
-import { StateDB } from "../../services/state_db.js";
 import { Item } from "../../services/item_constructor.js";
-import {UsersDB} from "../../services/user_db.js";
-import {SiteDB} from "../../services/site_db.js";
-import {Render} from "../../services/render.js";
-let stateDB = new StateDB();
-let state = stateDB.getState();
-let usersDB = new UsersDB();
-let users = usersDB.getUsers();
-let siteDB = new SiteDB();
-let sites = siteDB.getSites();
-let currentSite;
-sites.forEach((site)=>{
-    if(site.id == state.site) {
-        currentSite = site;
-    }
-});
-let loggedInUser;
-users.forEach((user)=>{
-    if(user.id == state.user) {
-        loggedInUser = user;
-    }
-});
+import { Render } from "../../services/render.js";
+import { Helper } from "../../services/helper_constructor.js";
+let helper = new Helper();
+let state = helper.getState();
+let sites = helper.getSites();
+let currentSite = helper.getActiveSite();
 let render = new Render();
 render.renderItems(currentSite.items);
 
 
-document.getElementById('createItemMainPage').addEventListener('click',()=>{
-    document.getElementById('itemName').value = '';
-    document.getElementById('itemDescription').value = '';
-    document.getElementById('itemPrice').value = '';
-    document.getElementById('itemImage').value = '';
-    document.getElementById('createItemSection').style.display = "block";
+document.getElementById('create-item-main-page-btn').addEventListener('click',()=>{
+    document.getElementById('item-name').value = '';
+    document.getElementById('item-description').value = '';
+    document.getElementById('item-price').value = '';
+    document.getElementById('item-image').value = '';
+    document.getElementById('create-item-popup').style.display = "block";
 });
-document.getElementById('createItemPopupBtn').addEventListener('click',()=>{
-    let itemName = document.getElementById('itemName').value;
-    let itemDescription = document.getElementById('itemDescription').value;
-    let itemPrice = document.getElementById('itemPrice').value;
-    let itemImage = document.getElementById('itemImage').value;
-    let item = new Item(itemName, itemDescription, itemPrice, currentSite, itemImage);
-    currentSite.items.push(item);
-    siteDB.updateSites(sites);
-    state = stateDB.getState();
-    state.item = item.id;
-    stateDB.updateState(state);
+document.getElementById('create-item-popup-btn').addEventListener('click',async()=>{
+    let itemInput = render.getItemValues();
+    let item = await helper.createItem(itemInput.name, itemInput.description, itemInput.price, currentSite, itemInput.image);
+    currentSite = helper.getActiveSite();
     render.renderItems(currentSite.items);
     render.renderEditItemSection(item);
-    document.getElementById('createItemSection').style.display = "none";
+    document.getElementById('create-item-popup').style.display = "none";
 });
 document.getElementById('editItem').addEventListener('click',()=>{
-    state = stateDB.getState();
+    state = helper.getState();
     if(state.item == null) {
-        alert('Select item to edit');
+        document.getElementById('no-item-selected-error-section').style.display = 'block';
     } else {
-    sites = siteDB.getSites();
-    currentSite = sites.find(site => site.id == state.site);
-    let itemToEdit = currentSite.items.find(item  => item.id === state.item);
-    console.log(itemToEdit);
+    sites = helper.getSites();
+    currentSite = helper.getActiveSite();
+    let itemToEdit = currentSite.items.find(item => item.id === state.item);
     render.renderEditItemModal(itemToEdit);
     }
 });
-document.getElementById('saveItemChanges').addEventListener('click',()=>{
+document.getElementById('save-item-changes-btn').addEventListener('click',()=>{
    render.saveItemChanges();
-   state = stateDB.getState();
-   sites = siteDB.getSites();
-   currentSite = sites.find(site => site.id == state.site);
+   state = helper.getState();
+   sites = helper.getSites();
+   currentSite = helper.getActiveSite();
    render.renderItems(currentSite.items);
 });
-document.getElementById('closeItemEditPopup').addEventListener('click',()=>{
-    document.getElementById('editItemSection').style.display = "none";
+document.getElementById('close-item-edit-popup-btn').addEventListener('click',()=>{
+    document.getElementById('edit-item-section').style.display = "none";
 });
-document.getElementById('closeItemCreatePopup').addEventListener('click',()=>{
-    document.getElementById('createItemSection').style.display = "none";
+document.getElementById('close-create-item-popup-btn').addEventListener('click',()=>{
+    document.getElementById('create-item-popup').style.display = "none";
 });
+
+document.getElementById('delete-item').addEventListener('click',()=>{
+    state = helper.getState();
+    if(state.item == null) {
+        document.getElementById('no-item-selected-error-section').style.display = 'block';
+    } else {
+        sites = helper.getSites();
+        currentSite = helper.getActiveSite();
+        let itemToDelete = currentSite.items.find(item => item.id === state.item);
+        render.displayDeleteItemDialog(itemToDelete);
+    }
+});
+document.getElementById('close-delete-item-dialog-btn').addEventListener('click',()=>{
+    document.getElementById('delete-item-section').style.display = "none";
+});
+document.getElementById('delete-item-dialog-btn').addEventListener('click',()=>{
+    state = helper.getState();
+    helper.deleteItem(state.site,state.item);
+    state.item = null;
+    helper.updateState(state);
+    sites = helper.getSites();
+    currentSite = helper.getActiveSite();
+    render.resetEditItemSection();
+    render.renderItems(currentSite.items);
+    document.getElementById('delete-item-section').style.display = "none";
+});
+document.getElementById('error-section-ok-btn').addEventListener('click',()=>{
+    document.getElementById('no-item-selected-error-section').style.display = 'none';
+});
+

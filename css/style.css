@@ -115,7 +115,7 @@ body {
 #mySitesDiv {
     margin-top: 100px;
 }
-#createSiteSection, #createItemSection, #editItemSection {
+#createSiteSection, #create-item-popup, #edit-item-section, #delete-item-section, #no-item-selected-error-section {
     display: none;
     position: fixed;
     top: 0; left: 0;
@@ -124,13 +124,9 @@ body {
     cursor: pointer;
     transition: opacity .3s;
 }
-.itemHeaders {
+.item-details-headers {
     font-size: 20px;
     font-weight: bold;
-}
-#editImg {
-    width: 80px;
-    height: 80px;
 }
 .shadowTest {
     background-color: #303234;
@@ -138,6 +134,7 @@ body {
 .edit-site-menu {
     width: 220px;
     height: 40px;
+    font-size: 20px;
 }
 #sidebar{
     background-color: #020723;
@@ -161,14 +158,6 @@ body {
     margin-left: 12px;
     margin-top: 5px;
 }
-.item-card {
-    width: 200px;
-    margin: 5px;
-    background-color: #337a6a;
-}
-.card-btn-without-description {
-    margin-bottom: -72px;
-}
 #footer-index{
     margin-top: auto;
 }
@@ -177,4 +166,35 @@ body {
 }
 #mySitesButtons {
     width: 1500px;
+}
+.edit-item-section-image {
+    width: 150px;
+    height: 150px;
+}
+.edit-item-buttons {
+    width: 50px;
+    height: 50px;
+}
+.shadow-edit-sites-nav-buttons {
+    background-color: #0b7388;
+}
+.item-card {
+    width: 200px;
+    margin: 5px;
+    background-color: #c49f8a;
+    font-family: "Times New Roman";
+
+}
+.item-card-description {
+    height: 80px;
+    font-size: 18px;
+}
+.item-card-price {
+    color: #050904;
+    font-size: 30px;
+}
+.item-card-add-btn {
+    background-color: green;
+    width: 150px;
+    margin-top: 2px;
 }

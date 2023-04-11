@@ -1,6 +1,5 @@
 import {StateDB} from "./state_db.js";
 import {SiteDB} from "./site_db.js";
-import {Order} from "./order_constructor.js";
 
 export class Render {
     constructor() {
@@ -56,7 +55,7 @@ export class Render {
     renderItems(items) {
         let stateDB = new StateDB();
         let state = stateDB.getState();
-        let div = document.getElementById('items');
+        let div = document.getElementById('items-list');
         div.innerHTML = '';
         items.forEach((item) => {
             let button = document.createElement('button');
@@ -75,11 +74,12 @@ export class Render {
         this.shadowSelectedButton(items,state);
     }
     renderEditItemModal(item) {
-        document.getElementById('editItemSection').style.display = "block";
-        document.getElementById('editItemName').value = item.name;
-        document.getElementById('editItemDescription').value = item.description;
-        document.getElementById('editItemPrice').value = item.price;
-        document.getElementById('editItemInventory').value = item.inventory;
+        document.getElementById('edit-item-section').style.display = "block";
+        document.getElementById('edit-item-name').value = item.name;
+        document.getElementById('edit-item-description').value = item.description;
+        document.getElementById('edit-item-image').value = item.image;
+        document.getElementById('edit-item-price').value = item.price;
+        document.getElementById('edit-item-inventory').value = item.inventory;
     }
     saveItemChanges() {
         let stateDB = new StateDB();
@@ -88,16 +88,14 @@ export class Render {
         let sites = siteDB.getSites();
         let site = sites.find(site => site.id == state.site);
         let item = site.items.find(item => item.id == state.item);
-        item.name = document.getElementById('editItemName').value;
-        item.description = document.getElementById('editItemDescription').value;
-        item.price = document.getElementById('editItemPrice').value;
-        item.inventory = document.getElementById('editItemInventory').value;
+        item.name = document.getElementById('edit-item-name').value;
+        item.description = document.getElementById('edit-item-description').value;
+        item.image =  document.getElementById('edit-item-image').value;
+        item.price = document.getElementById('edit-item-price').value;
+        item.inventory = document.getElementById('edit-item-inventory').value;
         siteDB.updateSites(sites);
-        document.getElementById('itemDetails_name').innerText = item.name;
-        document.getElementById('itemDetails_price').innerText = item.price;
-        document.getElementById('itemDetails_Description').innerText = item.description;
-        document.getElementById('itemDetails_Inventory').innerText = item.inventory;
-        document.getElementById('editItemSection').style.display = "none";
+        this.renderEditItemSection(item);
+        document.getElementById('edit-item-section').style.display = "none";
     }
     shadowSelectedButton(items, state){
      items.forEach((item)=>{
@@ -109,10 +107,27 @@ export class Render {
      });
     }
     renderEditItemSection(item){
-        document.getElementById('itemDetails_name').innerText = item.name;
-        document.getElementById('itemDetails_price').innerText = item.price;
-        document.getElementById('itemDetails_Description').innerText = item.description;
-        document.getElementById('itemDetails_Inventory').innerText = item.inventory;
+        document.getElementById('item-details-name').innerText = item.name;
+        document.getElementById('item-details-price').innerText = item.price;
+        document.getElementById('item-details-description').innerText = item.description;
+        document.getElementById('item-details-inventory').innerText = item.inventory;
+        let div = document.getElementById('item-details-image');
+        div.innerText = '';
+        let img = document.createElement('img');
+        img.classList.add('edit-item-section-image');
+        if(item.image == '') {
+            img.setAttribute('src','https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg');
+        } else {
+            img.setAttribute('src',item.image);
+        }
+        div.appendChild(img);
+    }
+    resetEditItemSection() {
+        document.getElementById('item-details-name').innerText = '';
+        document.getElementById('item-details-price').innerText = '';
+        document.getElementById('item-details-description').innerText = '';
+        document.getElementById('item-details-inventory').innerText = '';
+        document.getElementById('item-details-image').innerText = '';
     }
     renderItemsViewPage(order) {
         let stateDB = new StateDB();
@@ -158,19 +173,16 @@ export class Render {
            title.innerText = item.name;
            let description = document.createElement('p');
            description.id = "row-"+rowNumber+"-item-"+itemCount+"-description";
-           description.classList.add('card-text');
+           description.classList.add('card-text','item-card-description');
            description.innerText = item.description;
            let price = document.createElement('h8');
            price.id = "row-"+rowNumber+"-item-"+itemCount+"-price";
-           price.innerText = `₪${item.price}`;
+           price.innerText = `  ₪${item.price}`;
+           price.classList.add('item-card-price');
            let addBtn = document.createElement('button');
            addBtn.id = item.id;
            addBtn.setAttribute('type','button');
-           if(item.description == '') {
-               addBtn.classList.add('btn','card-btn-without-description');
-           } else  {
-               addBtn.classList.add('btn');
-           }
+           addBtn.classList.add('btn','item-card-add-btn');
            addBtn.innerText = 'Add To Cart';
            addBtn.addEventListener('click',()=>{
                order.addItems(item);
@@ -207,6 +219,31 @@ export class Render {
         document.getElementById('cart-total-before-discount');
         document.getElementById('cart-discount');
         document.getElementById('cart-total-after-discount').innerText =`Total: ${order.priceBeforeDiscount}`;
+    }
+    displayDeleteItemDialog(itemToDelete) {
+        document.getElementById('delete-item-dialog-header').innerText = `Delete Item "${itemToDelete.name}"`;
+        document.getElementById('delete-item-section').style.display = 'block';
+    }
+    getItemValues() {
+        let item = {
+            name: document.getElementById('item-name').value,
+            description: document.getElementById('item-description').value,
+            price: document.getElementById('item-price').value,
+            image: document.getElementById('item-image').value
+        }
+        return item;
+    }
+    shadowEditSiteMenuButtons() {
+        let stateDB = new StateDB();
+        let state = stateDB.getState()
+        let elements = [document.getElementById('items'),document.getElementById('preview')];
+        elements.forEach((element)=>{
+            if (element.id == state.iframe) {
+                element.classList.add("shadow-edit-sites-nav-buttons");
+            } else {
+                element.classList.remove("shadow-edit-sites-nav-buttons");
+            }
+        });
 
     }
 }
