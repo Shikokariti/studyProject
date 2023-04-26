@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MK – Online Shopping</title>
+  <script type="module" src="promotions.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../css/style.css" />
+</head>
+<body>
+
+<button id="create-promotion-main-page-btn" class="btn btn-primary position-absolute end-0">Create Promotion</button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3 text-white">
+      <div class="promotion-details-headers mt-3">Promotions</div>
+      <div id="promotions-list" class="btn-group-vertical mt-4 w-50" role="group" aria-label="Basic example">
+
+      </div>
+    </div>
+    <div class="col-8 text-white">
+      <div class="container-fluid mt-2">
+        <div class="row">
+          <div class="col-2 text-white m-3">
+            <h1 class="promotion-details-headers">Name</h1>
+            <div id="promotion-details-name" class="mt-5">
+
+            </div>
+          </div>
+          <div class="col-2 text-white m-3">
+            <h1 class="promotion-details-headers">Type</h1>
+            <div id="promotion-details-type" class="mt-5">
+
+            </div>
+          </div>
+          <div class="col-2 text-white m-3">
+            <h1 id="promotion-details-value-header" class="promotion-details-headers">Value</h1>
+            <div id="promotion-details-value" class="mt-5">
+
+            </div>
+          </div>
+          <div class="col-2 text-white m-3">
+            <h1 class="promotion-details-headers">Active</h1>
+            <div id="promotion-details-active" class="mt-5">
+
+            </div>
+          </div>
+          <div class="col-2 text-white m-3">
+            <div class="row">
+              <div class="col-6">
+                <button id="edit-promotion" class="btn btn-primary">
+                  <img class="rounded edit-item-buttons d-inline" id="edit-promotion-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Lq_g4J3OUL-_fvlbFehfpf61f40FVMAHdg&usqp=CAU">
+                </button>
+              </div>
+              <div class="col-6">
+                <button id="delete-promotion" class="btn btn-primary">
+                  <img class="rounded edit-item-buttons d-inline" id="delete-promotion-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2abCwsk6rnJ3lz5vILLKmGsSTSj8Cjl0Qcg&usqp=CAU">
+                </button>
+              </div>
+
+
+            </div>
+          </div>
+          <hr class="my-2"></br></br>
+          <div class="row">
+            <div class="col-2 text-white m-3">
+              <h1 class="promotion-details-headers">Buy</h1>
+              <div id="promotion-details-buy" class="mt-5">
+              </div>
+            </div>
+            <div class="col-2 text-white m-3">
+              <h1 class="promotion-details-headers">Get</h1>
+              <div id="promotion-details-get" class="mt-5">
+              </div>
+            </div>
+          </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="create-promotion-popup" class="vh-100">
+    <div class="container-fluid py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5 rounded" style="background-color: #0b0e34;">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;background-color: #0b0e34;">
+            <div class="card-body rounded p-5" style="background-color: #0b0e34;">
+
+              <h3 class="text-white"></h3>
+              <p id="create-promotion-header" class="text-white mb-5 fs-3 text-center">Create Promotion</p>
+
+              <div class="form-outline mb-4">
+                <h6 class="text-white">Name</h6>
+                <input type="text" id="promotion-name" class="text-center rounded w-25 h-5" />
+                <hr class="my-2">
+                <div id="promotion-value-label-div">
+                <h6 id="promotion-value-label" class="text-white">Value</h6>
+                <input type="text" id="promotion-value" class="text-center rounded w-25 h-5" />
+                </div>
+                <div id="promotion-buy-item-label-div">
+                  <h6 class="text-white">Buy</h6>
+                  <select type="text" id="promotion-buy-item-select" class="text-center rounded w-25 h-5"></select>
+                </div>
+                <hr class="my-2">
+                <div id="promotion-get-item-label-div">
+                  <h6 class="text-white">Get</h6>
+                  <select type="text" id="promotion-get-item-select" class="text-center rounded w-25 h-5"></select>
+                </div>
+                <hr class="my-2">
+                <h6 class="text-white">Inactive/Active</h6>
+                <div>
+                  <label class="switch">
+                    <input id="promotion-active-toggle" type="checkbox" value="true" checked="checked" class="slider-input">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+              <div id="promotion-limit-toggle-div">
+                <h6 class="text-white">Only one/Unlimited</h6>
+                <div>
+                  <label class="switch">
+                    <input id="promotion-limit-toggle" type="checkbox" value="true" checked="checked" class="slider-input">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+
+              <hr class="my-4">
+              <div class="text-center">
+                <button id="create-promotion-popup-btn" class="btn btn-lg btn-block btn-primary text-center promotion-type-btn" style="background-color: #18571a;"
+                        type="submit">Create</button>
+                <button id="close-create-promotion-popup-btn" class="btn btn-lg btn-block btn-primary text-center promotion-type-btn" style="background-color: #1a2354;"
+                        type="button">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<section id="edit-promotion-popup" class="vh-100">
+  <div class="container-fluid py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5 rounded" style="background-color: #0b0e34;">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;background-color: #0b0e34;">
+          <div class="card-body rounded p-5" style="background-color: #0b0e34;">
+
+            <h3 class="text-white"></h3>
+            <p id="edit-promotion-header" class="text-white mb-5 fs-3 text-center">Edit Promotion</p>
+
+            <div class="form-outline mb-4">
+              <h6 class="text-white">Name</h6>
+              <input type="text" id="edit-promotion-name" class="text-center rounded w-25 h-5" />
+              <hr class="my-2">
+              <div id="edit-promotion-value-label-div">
+                <h6 id="edit-promotion-value-label" class="text-white">Value</h6>
+                <input type="text" id="edit-promotion-value" class="text-center rounded w-25 h-5" />
+              </div>
+              <div id="edit-promotion-buy-item-label-div">
+                <h6 class="text-white">Buy</h6>
+                <select type="text" id="edit-promotion-buy-item-select" class="text-center rounded w-25 h-5"></select>
+              </div>
+              <hr class="my-2">
+              <div id="edit-promotion-get-item-label-div">
+                <h6 class="text-white">Get</h6>
+                <select type="text" id="edit-promotion-get-item-select" class="text-center rounded w-25 h-5"></select>
+              </div>
+              <hr class="my-2">
+              <h6 class="text-white">Inactive/Active</h6>
+              <div>
+                <label class="switch">
+                  <input id="edit-promotion-active-toggle" type="checkbox" value="true" checked="checked" class="slider-input">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+            <div id="edit-promotion-limit-toggle-div">
+              <h6 class="text-white">Only one/Unlimited</h6>
+              <div>
+                <label class="switch">
+                  <input id="edit-promotion-limit-toggle" type="checkbox" value="true" checked="checked" class="slider-input">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+
+            <hr class="my-4">
+            <div class="text-center">
+              <button id="edit-promotion-popup-save-btn" class="btn btn-lg btn-block btn-primary text-center promotion-type-btn" style="background-color: #18571a;"
+                      type="submit">Save</button>
+              <button id="edit-promotion-popup-close-btn" class="btn btn-lg btn-block btn-primary text-center promotion-type-btn" style="background-color: #1a2354;"
+                      type="button">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="create-promotion-type-dialog-section" class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5 rounded" style="background-color: #0b0e34;">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;background-color: #0b0e34;">
+          <div  class="card-body rounded p-5 text-center" style="background-color: #0b0e34;">
+            <h3 class="text-white"></h3>
+            <p id="delete-item-dialog-header" class="text-white mb-5 fs-3">Select Promotion Type</p>
+            <select id="promotion-type-select-box" class="form-select-sm text-center">
+              <option id="promotion-type-discount-percentage" value="discount-percentage">Discount %</option>
+              <option id="promotion-type-discount-amount" value="discount-amount">Discount $</option>
+              <option id="promotion-type-1-plus-1" value="1-plus-1">1+1</option>
+            </select>
+            <hr class="my-4">
+            <button id="continue-create-promotion-dialog-btn" class="btn btn-lg btn-block btn-success promotion-type-btn" style="background-color: #18571a;"
+                    type="button">Continue</button>
+            <button id="close-create-promotion-dialog-btn" class="btn btn-lg btn-block btn-primary promotion-type-btn" style="background-color: #1a2354;"
+                    type="button">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="no-promotion-selected-error-section" class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5 rounded" style="background-color: #0b0e34;">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;background-color: #0b0e34;">
+          <div  class="card-body rounded p-5 text-center" style="background-color: #0b0e34;">
+
+            <h3 class="text-white"></h3>
+            <p class="text-white mb-5 fs-3">Select promotion first</p>
+
+            <hr class="my-4">
+
+            <button id="error-section-ok-btn" class="btn btn-lg btn-block btn-primary" style="background-color: #16910e;"
+                    type="button">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="delete-promotion-dialog-section" class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5 rounded" style="background-color: #0b0e34;">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;background-color: #0b0e34;">
+          <div  class="card-body rounded p-5 text-center" style="background-color: #0b0e34;">
+
+            <h3 class="text-white"></h3>
+            <p id="delete-promotion-dialog-header" class="text-white mb-5 fs-3">Delete Item</p>
+
+            <div class="form-outline mb-4 text-white">
+              <p>Are you sure?</p>
+            </div>
+
+            <hr class="my-4">
+
+            <button id="delete-promotion-dialog-btn" class="btn btn-lg btn-block btn-primary" style="background-color: #a6101f;"
+                    type="button">Delete</button>
+            <button id="close-promotion-item-dialog-btn" class="btn btn-lg btn-block btn-primary" style="background-color: #1a2354;"
+                    type="button">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
